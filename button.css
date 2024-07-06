@@ -1,0 +1,49 @@
+
+.btn-1,
+.btn-1 *,
+.btn-1 :after,
+.btn-1 :before,
+.btn-1:after,
+.btn-1:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-1 {
+  -webkit-tap-highlight-color: 
+transparent;
+  -webkit-appearance: button;
+  background-color: 
+#000;
+  background-image: none;
+  color: 
+#fff;
+  cursor: pointer;
+  font-family:Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+
+}
+.btn-1:disabled {
+  cursor: default;
+}
+.btn-1:-moz-focusring {
+  outline: auto;
+}
+.btn-1 svg {
+  display: block;
+  vertical-align: middle;
+}
+.btn-1 [hidden] {
+  display: none;
+}
+.btn-1 {
+ 
+  border-width: 2px;
+  padding: 0.8rem 3rem;
+}
+.btn-1:hover {
+  color: 
+#999;
+}
