@@ -1,3 +1,48 @@
+<?php
+session_start();
+
+include 'includes/db_connect.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['Name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Check if email already exists
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        echo "<script>alert('Email already registered. Please use a different email.'); window.location.href='register.php';</script>";
+    } else {
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Sanitize input
+        $name = $conn->real_escape_string($name);
+        $email = $conn->real_escape_string($email);
+        $password = $conn->real_escape_string($hashed_password);
+
+        // Insert user into database
+        $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $name, $email, $password);
+
+        if ($stmt->execute()) {
+            echo "<script>alert('Registration successful!'); window.location.href='login.php';</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +51,8 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="./asset/css/button.css">
+    <link rel="stylesheet" href="./asset/css/register.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -135,44 +181,6 @@
             </form>
         </div>
     </div>
-    
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST['Name'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
 
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Database connection
-        $servername ="localhost";
-        $username="root";
-        $password_db ="";
-        $dbname="reelreview";
-        $conn = new mysqli($servername, $username, $password_db, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        // Sanitize input
-        $name = $conn->real_escape_string($name);
-        $email = $conn->real_escape_string($email);
-        $password = $conn->real_escape_string($hashed_password);
-
-        // Insert user into database
-        $sql = "INSERT INTO users (Name, email, password) VALUES ('$name', '$email', '$password')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('Registration successful!'); window.location.href='login.php';</script>";
-        } else {
-            echo "Error: " .$sql . "<br>" . $conn->error;
-        }
-
-        $conn->close();
-    }
-    ?>
 </body>
 </html>

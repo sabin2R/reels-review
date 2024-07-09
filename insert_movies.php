@@ -43,7 +43,6 @@ $movies = [
         'description' => 'The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.',
         'genre' => 'Crime',
         'rating' => 8.9,
-        
         'release_date' => '1994-10-14'
     ],
     [

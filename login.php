@@ -6,7 +6,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel = "stylesheet" href ="button.css">
+    <link rel = "stylesheet" href ="./asset/css/button.css">
     <link rel = "stylesheet" href ="./asset/css/login.css">
 
 </head>
@@ -40,14 +40,12 @@
     </div>
     
     <?php
-    include "db_connect.php";
+    include 'includes/db_connect.php';
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $password = $_POST['password'];
-
-        
 
         // Sanitize input
         $email = $conn->real_escape_string($email);
@@ -62,7 +60,7 @@
             // Verify password
             if (password_verify($password, $row['password'])) {
                 $_SESSION['user_id'] = $row['id'];
-                header("Location: main.php");
+                header("Location: index.php");
                 exit();
             } else {
                 echo "<script>alert('Invalid password.');</script>";
