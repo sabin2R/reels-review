@@ -24,6 +24,9 @@
                         <a class="nav-link" href="favorites.php">Favorites</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="account.php">Account</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);" id="logout-button">Logout</a>
                     </li>
                 <?php else: ?>
