@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between mb-3">
+            <h2>All Movies</h2>
+            <div>
+                <input type="text" id="search-movies" class="form-control d-inline-block w-auto" placeholder="Search Movies">
+            </div>
+        </div>
+        <div class="row" id="movie-grid">
+            <!-- Movies will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample movie data
+        var moviesData = [
+            { id: 1, name: 'The Shawshank Redemption', genre: 'Drama', release_date: '1994-09-23', rating: 9.3, poster_url: 'https://via.placeholder.com/150' },
+            { id: 2, name: 'The Godfather', genre: 'Crime', release_date: '1972-03-24', rating: 9.2, poster_url: 'https://via.placeholder.com/150' },
+            { id: 3, name: 'The Dark Knight', genre: 'Action', release_date: '2008-07-18', rating: 9.0, poster_url: 'https://via.placeholder.com/150' },
+            { id: 4, name: 'Pulp Fiction', genre: 'Crime', release_date: '1994-10-14', rating: 8.9, poster_url: 'https://via.placeholder.com/150' },
+        ];
+
+        function displayMovies(movieList) {
+            var movieGrid = document.getElementById('movie-grid');
+            movieGrid.innerHTML = '';
+            movieList.forEach(function(movie) {
+                var movieCard = `
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="${movie.poster_url}" class="card-img-top" alt="${movie.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${movie.name}</h5>
+                                <p class="card-text">Genre: ${movie.genre}</p>
+                                <p class="card-text">Release Date: ${movie.release_date}</p>
+                                <p class="card-text">Rating: ${movie.rating} ⭐</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                movieGrid.insertAdjacentHTML('beforeend', movieCard);
+            });
+        }
+
+        function filterMovies(searchTerm) {
+            return moviesData.filter(function(movie) {
+                return movie.name.toLowerCase().includes(searchTerm.toLowerCase());
+            });
+        }
+
+        document.getElementById('search-movies').addEventListener('input', function() {
+            var searchTerm = this.value;
+            var filteredMovies = filterMovies(searchTerm);
+            displayMovies(filteredMovies);
+        });
+
+        // Initial display of all movies
+        displayMovies(moviesData);
+    </script>
+</body>
+</html>

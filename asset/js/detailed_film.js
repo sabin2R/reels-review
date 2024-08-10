@@ -47,5 +47,29 @@ $(document).ready(function() {
         });
     });
 
+    $('.favorite-icon').on('click', function() {
+        var icon = $(this);
+        var movieId = icon.data('id');
+        
+        $.ajax({
+            type: 'POST',
+            url: 'toggle_favorite.php',
+            data: { movie_id: movieId },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    icon.toggleClass('active');
+                    alert(response.message);
+                } else {
+                    alert('Failed to toggle favorite: ' + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error toggling favorite:', error);
+                alert('An error occurred while toggling favorite.');
+            }
+        });
+    });
+
     window.submitReview = submitReview; // Make function available globally
 });

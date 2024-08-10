@@ -54,26 +54,9 @@ $conn->close();
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./asset/js/favorites.js"></script> <!-- Link to the external JS file -->
     <script>
         var favoriteMoviesData = <?php echo json_encode($favorites); ?>;
-        document.addEventListener('DOMContentLoaded', function() {
-            var favoriteGrid = document.getElementById('favorite-grid');
-            function displayFavorites(movieList) {
-                favoriteGrid.innerHTML = '';
-                movieList.forEach(function(movie) {
-                    var movieCard = `
-                        <div class="col-md-3 movie-card">
-                            <img src="${movie.poster_url}" alt="${movie.name}">
-                            <h5>${movie.name}</h5>
-                            <p>${movie.description}</p>
-                            <p class="rating" data-rating="${movie.rating}">Rating: ${movie.rating} ⭐</p>
-                        </div>
-                    `;
-                    favoriteGrid.insertAdjacentHTML('beforeend', movieCard);
-                });
-            }
-            displayFavorites(favoriteMoviesData);
-        });
     </script>
 </body>
 </html>

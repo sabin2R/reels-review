@@ -8,15 +8,22 @@ if (!isset($_SESSION['user_id'])) {
 
 include 'includes/db_connect.php';
 
-//Fetching all the movies from database
-$sql = "SELECT id, name, description, genre, rating, poster_url FROM movies";
-$result = $conn->query($sql);
+// Fetching all the movies and checking if they are in favorites
+$sql = "SELECT movies.id, movies.name, movies.description, movies.genre, movies.rating, movies.poster_url, 
+        IF(favorites.user_id IS NULL, 0, 1) AS is_favorite 
+        FROM movies 
+        LEFT JOIN favorites ON movies.id = favorites.movie_id AND favorites.user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
 $movies = [];
-$genres =[];
+$genres = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $movies[] = $row;
-        if (!in_array ($row['genre'], $genres)){
+        if (!in_array($row['genre'], $genres)) {
             $genres[] = $row['genre'];
         }
     }
@@ -98,6 +105,8 @@ $conn->close();
                                     <p><strong>Genre:</strong> <?php echo htmlspecialchars($movie['genre']); ?></p>
                                     <p><strong>Rating:</strong> <?php echo htmlspecialchars($movie['rating']); ?> ⭐</p>
                                 </div>
+                                <!-- Heart icon -->
+                                <span class="favorite <?php echo $movie['is_favorite'] ? 'active' : ''; ?>" data-id="<?php echo $movie['id']; ?>"><i class="fas fa-heart"></i></span>
                             </div>
                         </div>
                     </a>
