@@ -1,14 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
 
 include 'includes/db_connect.php';
 
 $movie_id = $_GET['id'];
-$user_id = $_SESSION['user_id'];
+$is_logged_in = isset($_SESSION['user_id']);
+$user_id = $is_logged_in ? $_SESSION['user_id'] : null;
 
 $sql = "SELECT * FROM movies WHERE id = ?";
 $stmt = $conn->prepare($sql);

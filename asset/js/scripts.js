@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function attachEventListeners() {
         document.querySelectorAll('.favorite').forEach(function(el) {
-            el.addEventListener('click', function() {
+            el.addEventListener('click', function(event) {
+                event.preventDefault();
                 var movieId = this.getAttribute('data-id');
                 addToFavorites(movieId);
             });

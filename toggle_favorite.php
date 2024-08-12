@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    echo json_encode(['success' => false, 'message' => 'Not logged in.']);
+    echo json_encode(['success' => false, 'message' => 'You need to log in to add a movie to favoriets.']);
     exit();
 }
 

@@ -235,7 +235,118 @@ $movies = [
         'director' => 'Bong Joon Ho',
         'writer' => 'Bong Joon Ho, Han Jin Won',
         'stars' => 'Kang-ho Song, Sun-kyun Lee, Yeo-jeong Cho'
+    ],
+    [
+        'name' => 'The Departed',
+        'description' => 'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in Boston.',
+        'genre' => 'Crime',
+        'rating' => 8.5,
+        'poster_url' => 'https://i.ebayimg.com/images/g/b8YAAOxy1RZSViYb/s-l1200.webp',
+        'release_date' => '2006-10-06',
+        'director' => 'Martin Scorsese',
+        'writer' => 'William Monahan (screenplay), Alan Mak (story)',
+        'stars' => 'Leonardo DiCaprio, Matt Damon, Jack Nicholson'
+    ],
+    [
+        'name' => 'Whiplash',
+        'description' => 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.',
+        'genre' => 'Drama',
+        'rating' => 8.5,
+        'poster_url' => 'https://i.ebayimg.com/images/g/h2QAAOSwdPBjXy~X/s-l1200.webp',
+        'release_date' => '2014-10-10',
+        'director' => 'Damien Chazelle',
+        'writer' => 'Damien Chazelle',
+        'stars' => 'Miles Teller, J.K. Simmons, Melissa Benoist'
+    ],
+    [
+        'name' => 'The Prestige',
+        'description' => 'After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.',
+        'genre' => 'Drama',
+        'rating' => 8.5,
+        'poster_url' => 'https://i.ebayimg.com/images/g/UaYAAOSw-3FZFjti/s-l1600.jpg',
+        'release_date' => '2006-10-20',
+        'director' => 'Christopher Nolan',
+        'writer' => 'Jonathan Nolan, Christopher Nolan (screenplay)',
+        'stars' => 'Christian Bale, Hugh Jackman, Scarlett Johansson'
+    ],
+    [
+        'name' => 'The Usual Suspects',
+        'description' => 'A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, which begin when five criminals meet at a seemingly random police lineup.',
+        'genre' => 'Crime',
+        'rating' => 8.5,
+        'poster_url' => 'https://i.ebayimg.com/images/g/1CMAAOSwMOli-GGp/s-l1600.jpg',
+        'release_date' => '1995-08-16',
+        'director' => 'Bryan Singer',
+        'writer' => 'Christopher McQuarrie',
+        'stars' => 'Kevin Spacey, Gabriel Byrne, Chazz Palminteri'
+    ],
+    [
+        'name' => 'The Shining',
+        'description' => 'A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.',
+        'genre' => 'Horror',
+        'rating' => 8.4,
+        'poster_url' => 'https://i.ebayimg.com/images/g/ti8AAOSwoWFfWyhA/s-l1600.jpg',
+        'release_date' => '1980-05-23',
+        'director' => 'Stanley Kubrick',
+        'writer' => 'Stephen King (novel), Stanley Kubrick (screenplay)',
+        'stars' => 'Jack Nicholson, Shelley Duvall, Danny Lloyd'
+    ],
+    [
+        'name' => 'Mad Max: Fury Road',
+        'description' => 'In a post-apocalyptic wasteland, Max teams up with a mysterious woman, Furiosa, to try and survive.',
+        'genre' => 'Action',
+        'rating' => 8.1,
+        'poster_url' => 'https://i.ebayimg.com/images/g/38sAAOSwdRdgSdGL/s-l1600.jpg',
+        'release_date' => '2015-05-15',
+        'director' => 'George Miller',
+        'writer' => 'George Miller, Brendan McCarthy',
+        'stars' => 'Tom Hardy, Charlize Theron, Nicholas Hoult'
+    ],
+    [
+        'name' => 'The Social Network',
+        'description' => 'As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.',
+        'genre' => 'Biography',
+        'rating' => 7.7,
+        'poster_url' => 'https://i.ebayimg.com/images/g/uXgAAOSw0eZiglWs/s-l1600.jpg',
+        'release_date' => '2010-10-01',
+        'director' => 'David Fincher',
+        'writer' => 'Aaron Sorkin (screenplay), Ben Mezrich (book)',
+        'stars' => 'Jesse Eisenberg, Andrew Garfield, Justin Timberlake'
+    ],
+    [
+        'name' => 'The Wolf of Wall Street',
+        'description' => 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption, and the federal government.',
+        'genre' => 'Biography',
+        'rating' => 8.2,
+        'poster_url' => 'https://i.ebayimg.com/images/g/TyUAAOSwjxZgz6Rj/s-l1600.jpg',
+        'release_date' => '2013-12-25',
+        'director' => 'Martin Scorsese',
+        'writer' => 'Terence Winter (screenplay), Jordan Belfort (book)',
+        'stars' => 'Leonardo DiCaprio, Jonah Hill, Margot Robbie'
+    ],
+    [
+        'name' => 'Joker',
+        'description' => 'In Gotham City, mentally troubled comedian Arthur Fleck embarks on a downward spiral of social revolution and bloody crime. This path brings him face-to-face with his infamous alter-ego: the Joker.',
+        'genre' => 'Crime',
+        'rating' => 8.4,
+        'poster_url' => 'https://i.ebayimg.com/images/g/aN0AAOSw50BduC3-/s-l1200.webp',
+        'release_date' => '2019-10-04',
+        'director' => 'Todd Phillips',
+        'writer' => 'Todd Phillips, Scott Silver',
+        'stars' => 'Joaquin Phoenix, Robert De Niro, Zazie Beetz'
+    ],
+    [
+        'name' => 'Inglourious Basterds',
+        'description' => 'In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner\'s vengeful plans for the same.',
+        'genre' => 'Adventure',
+        'rating' => 8.3,
+        'poster_url' => 'https://i.ebayimg.com/00/s/MTYwMFgxMTgw/z/F9UAAOSw171gr4Oa/$_57.JPG?set_id=8800005007',
+        'release_date' => '2009-08-21',
+        'director' => 'Quentin Tarantino',
+        'writer' => 'Quentin Tarantino',
+        'stars' => 'Brad Pitt, Diane Kruger, Eli Roth'
     ]
+    
 ];
 
 // Insert data into database
